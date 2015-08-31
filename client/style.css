@@ -35,9 +35,10 @@
 #say-cheese-snapshots {
   float: left;
   margin-top: 15px;
-  width: 150px;
+  width: 155px;
   max-height: 480px;
-  overflow: scroll;
+  height: 480px;
+  overflow-y: auto;
 }
 
 #say-cheese-snapshots img {
