@@ -1,0 +1,26 @@
+<head>
+  <title>testcheese</title>
+
+</head>
+
+<body>
+  <h3>Say Cheese!</h3>
+<P>This is a small Meteor app to demonstrate taking photos using the camera. It uses the mikkelking:say-cheese Meteor package, which in turn uses the leemachin/say-cheese plugin.
+</p>
+  {{> cheese}}
+</body>
+
+<template name="cheese">
+      <div class="row">
+        <div class="span12 say-cheese">
+          <div id="say-cheese-container">
+            <div id="action-buttons">
+              <!-- <button class="btn btn-success" id="done">Done</button> -->
+              <button class="btn btn-success" id="take-snapshot">snap!</button>
+            </div>
+          </div>
+          <div id="say-cheese-snapshots"></div>
+        </div>
+      </div>
+
+</template>
