@@ -25,14 +25,19 @@ Template.cheese.rendered = function() {
           $('.say-cheese').prepend($alert);
         });
 
-        sayCheese.on('snapshot', function(snapshot) {
-          var img = document.createElement('img');
+        // sayCheese.on('snapshot', function(snapshot) {
+        //   var img = document.createElement('img');
 
-          $(img).on('load', function() {
-            $('#say-cheese-snapshots').prepend(img);
+        //   $(img).on('load', function() {
+        //     $('#say-cheese-snapshots').prepend(img);
+        //   });
+        //   img.src = snapshot.toDataURL('image/png');
+        // });
+
+        sayCheese.on('snapshot', function(snapshot) {
+          Blaze.renderWithData(Template.snap, {imgData: snapshot.toDataURL('image/png')}, document.getElementById('say-cheese-snapshots'));
+//          UI.insert(UI.renderWithData(Template.snap,{imgData: snapshot.toDataURL('image/png')}), $('#say-cheese-snapshots'),$('#say-cheese-snapshots')ß );
           });
-          img.src = snapshot.toDataURL('image/png');
-        });
 	sayCheese.start();
 }
   Template.cheese.events({
