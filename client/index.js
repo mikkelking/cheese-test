@@ -3,7 +3,7 @@
   Session.setDefault('counter', 0);
 
 Template.cheese.rendered = function() {
-        sayCheese = new SayCheese('#say-cheese-container', { audio: true, video: { width: { facingMode: { exact: "environment" } } } } );
+        sayCheese = new SayCheese('#say-cheese-container', { audio: false, video: { width: { facingMode: { exact: "environment" } } } } );
 
         sayCheese.on('start', function() {
           $('#action-buttons').fadeIn('slow');
