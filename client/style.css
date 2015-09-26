@@ -33,13 +33,12 @@
   max-width: 400px;
   height: auto   !important;
 }
-
 #say-cheese-snapshots {
   float: left;
-  margin-top: 5px;
+  margin-top: 8px;
   width: 155px;
-  max-height: 480px;
-  height: 480px;
+  max-height: 307px;
+  height: 307px;
   overflow-y: auto;
   padding-left: 0px;
 }
@@ -51,4 +50,18 @@
   border: 1px solid #e8e8e8;
   box-shadow: 1px 1px 5px 0px #808080;
   margin: 5px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  #say-cheese-container video {
+    max-width: 640px;
+  }
+  #say-cheese-snapshots {
+    width: 215px;
+    max-height: 492px;
+    height: 492px;
+  }
+  #say-cheese-snapshots img {
+    width: 200px;
+  }
 }
