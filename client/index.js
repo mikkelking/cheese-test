@@ -30,9 +30,7 @@ Template.cheese.rendered = function() {
 // This callback event is triggered from within the takeSnapshot function
   sayCheese.on('snapshot', function(snapshot) {
     if ((typeof snapshot === 'Array' ) || (typeof snapshot === 'object' )) {
-      _.each(snapshot, function(snap, index, list) {
-        Blaze.renderWithData(Template.snap, {imgData: snap}, document.getElementById('say-cheese-snapshots'));
-      });
+      Blaze.renderWithData(Template.snap, {imgData: _.last(snapshot)}, document.getElementById('say-cheese-snapshots'));
     } else {
       Blaze.renderWithData(Template.snap, {imgData: snapshot}, document.getElementById('say-cheese-snapshots'));
     }
