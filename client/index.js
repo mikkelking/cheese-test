@@ -2,9 +2,7 @@
 Template.cheese.rendered = function() {
   var camOptions = { 
     audio: false, 
-    video: { 
-      width: 320 
-    } 
+    widths: [640,320,140],      // Desired image widths, height is calculated from aspect ratio
   };
   sayCheese = new SayCheese('#say-cheese-container', camOptions );
 
@@ -29,20 +27,16 @@ Template.cheese.rendered = function() {
     $('.say-cheese').prepend($alert);
   });
 
-  // sayCheese.on('snapshot', function(snapshot) {
-  //   var img = document.createElement('img');
-
-  //   $(img).on('load', function() {
-  //     $('#say-cheese-snapshots').prepend(img);
-  //   });
-  //   img.src = snapshot.toDataURL('image/png');
-  // });
-
-// Paint the image into the page, although we'll change this
+// This callback event is triggered from within the takeSnapshot function
   sayCheese.on('snapshot', function(snapshot) {
-    Blaze.renderWithData(Template.snap, {imgData: snapshot.toDataURL('image/png')}, document.getElementById('say-cheese-snapshots'));
-//          UI.insert(UI.renderWithData(Template.snap,{imgData: snapshot.toDataURL('image/png')}), $('#say-cheese-snapshots'),$('#say-cheese-snapshots')ß );
-    });
+    if ((typeof snapshot === 'Array' ) || (typeof snapshot === 'object' )) {
+      _.each(snapshot, function(snap, index, list) {
+        Blaze.renderWithData(Template.snap, {imgData: snap}, document.getElementById('say-cheese-snapshots'));
+      });
+    } else {
+      Blaze.renderWithData(Template.snap, {imgData: snapshot}, document.getElementById('say-cheese-snapshots'));
+    }
+  });
 	sayCheese.start();
 } // End of Template.cheese.rendered
 
