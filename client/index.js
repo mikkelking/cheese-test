@@ -3,6 +3,7 @@ Template.cheese.rendered = function() {
   var camOptions = { 
     audio: false, 
     widths: [320],      // Desired image widths, height is calculated from aspect ratio
+    format: 'dataurl'
   };
   sayCheese = new SayCheese('#say-cheese-container', camOptions );
 
