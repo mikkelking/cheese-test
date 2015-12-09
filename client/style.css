@@ -52,7 +52,7 @@
   margin: 5px 0;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
   #say-cheese-container video {
     max-width: 640px;
   }
