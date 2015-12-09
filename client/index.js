@@ -2,7 +2,7 @@
 Template.cheese.rendered = function() {
   var camOptions = { 
     audio: false, 
-    widths: [640,320,140],      // Desired image widths, height is calculated from aspect ratio
+    widths: [320],      // Desired image widths, height is calculated from aspect ratio
   };
   sayCheese = new SayCheese('#say-cheese-container', camOptions );
 
@@ -29,6 +29,7 @@ Template.cheese.rendered = function() {
 
 // This callback event is triggered from within the takeSnapshot function
   sayCheese.on('snapshot', function(snapshot) {
+console.log(snapshot);
     if ((typeof snapshot === 'Array' ) || (typeof snapshot === 'object' )) {
       Blaze.renderWithData(Template.snap, {imgData: _.last(snapshot)}, document.getElementById('say-cheese-snapshots'));
     } else {
